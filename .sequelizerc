@@ -1,0 +1,11 @@
+// This tells the sequelize-cli where to find your migration files, models, etc.
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('.', 'sequelize.js'),
+  'models-path': path.resolve('src', 'models'),
+  'seeders-path': path.resolve('src', 'seeders'),
+  'migrations-path': path.resolve('src', 'migrations'),
+  'debug': true,
+  'env': process.env.NODE_ENV == ''? 'development' : process.env.NODE_ENV // development、staging、production
+}

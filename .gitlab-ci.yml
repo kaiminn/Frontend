@@ -1,0 +1,4 @@
+include:
+  - project: 'championgameteam/production/devops/gitlab-ci'
+    ref: 'master'
+    file: 'common-server.gitlab-ci.yml'

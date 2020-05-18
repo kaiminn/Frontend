@@ -1,0 +1,79 @@
+{
+  "deployEnv": "",
+  "author": "Snow <snow@championgame.net>",
+  "name": "admin-system",
+  "description": "admin system project",
+  "version": "1.0",
+  "private": true,
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "actionhero": "21.0.7",
+    "ah-sequelize-plugin": "^2.0.2",
+    "bcryptjs": "^2.4.3",
+    "currency.js": "^1.2.2",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-idiomatic": "^4.0.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-jest": "^23.0.5",
+    "ioredis": "latest",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mysql2": "^2.1.0",
+    "redlock": "^4.1.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.21.4",
+    "sequelize-hierarchy": "^2.0.4",
+    "sequelize-typescript": "^1.1.0",
+    "uuid": "^3.4.0",
+    "winston": "latest",
+    "ws": "latest"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/bluebird": "^3.5.29",
+    "@types/jest": "latest",
+    "@types/jsonwebtoken": "^8.3.9",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.14",
+    "@types/uuid": "^3.4.7",
+    "@types/validator": "^12.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "jest": "latest",
+    "prettier": "^2.0.5",
+    "sequelize-cli": "^5.5.1",
+    "sequelize-mock": "^0.10.2",
+    "ts-jest": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "build": "tsc --declaration",
+    "dev": "ts-node ./node_modules/actionhero/dist/bin/actionhero.js start",
+    "start": "yarn build &&  actionhero start",
+    "test": "jest --coverage --forceExit",
+    "pretest": "yarn build && yarn lint",
+    "lint": "prettier --check src/*/** __tests__/*/**",
+    "pretty": "prettier --write src/*/** __test__/*/**",
+    "eslint": "eslint src/*/*.ts src/*/*.js --ignore-pattern node_modules/ --ignore-pattern src/config",
+    "dbcreate": "npx sequelize-cli db:create",
+    "dbup": "npx sequelize-cli db:migrate",
+    "dbundo": "npx sequelize-cli db:migrate:undo",
+    "allseed": "npx sequelize-cli db:seed:all"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+version: '2.1'
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  redis:
+    image: redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - app-tier
+
+  slotgameserver:
+    image: slotgameserver
+    build: .
+    environment:
+      NODE_ENV: development
+      REDIS_HOST : host.docker.internal
+    ports:
+      - 8000:8000
+      - 8080:8080
+      - 9229:9229
+    depends_on:
+      - redis
+    networks:
+      - app-tier
+    ## set your startup file here
+    command: node --inspect=0.0.0.0:9229 helloword.js
