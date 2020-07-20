@@ -19,7 +19,7 @@
     "eslint-plugin-jest": "^23.0.5",
     "ioredis": "latest",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mysql2": "^2.1.0",
     "redlock": "^4.1.0",
     "reflect-metadata": "^0.1.13",
